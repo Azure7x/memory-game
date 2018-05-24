@@ -1,0 +1,37 @@
+.card-wrapper,
+.card,
+.front,
+.back {
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.card-wrapper{
+  perspective: 1000px;
+  background-color: gray;
+}
+
+.card{
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover{
+  transform: rotateY(-180deg);
+}
+
+.front{
+  position: absolute;
+  background-color: blue;
+  color: white;
+  backface-visibility: hidden;
+}
+
+.back{
+  position: absolute;
+  background-color: orange;
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+}
