@@ -33,7 +33,7 @@ html {
   transform-style: preserve-3d;
 }
 
-.card:hover {
+.flip {
   transform: rotateY(-180deg);
 }
 
