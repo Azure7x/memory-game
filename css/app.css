@@ -37,14 +37,14 @@ html {
   transform: rotateY(-180deg);
 }
 
-.front {
+.back {
   position: absolute;
   background-color: blue;
   color: white;
   backface-visibility: hidden;
 }
 
-.back {
+.front {
   position: absolute;
   background-color: orange;
   backface-visibility: hidden;
