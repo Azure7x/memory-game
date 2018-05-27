@@ -50,3 +50,11 @@ html {
   backface-visibility: hidden;
   transform: rotateY(-180deg);
 }
+
+.correct {
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
+}
