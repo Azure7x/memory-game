@@ -1,6 +1,7 @@
 let cardMatches = [];
 let initialCards = [];
 let finalCards =[];
+let movesNum = 0;
 const cardGrid = document.getElementById("card-grid");
 
   cardGrid.addEventListener("click", function(e){
@@ -26,11 +27,15 @@ function checkForMatch(cards){
       if(cards[0].dataset.number==cards[1].dataset.number){
       cards[0].children[1].classList.toggle("correct");
       cards[1].children[1].classList.toggle("correct");
+      movesNum++;
+      document.getElementById("moves-num").innerHTML = movesNum + " moves";
       //slow the match message a bit for better timing with correct color change
       setTimeout(function(){alert("they matched");},500);
     } else{
       cards[0].children[1].classList.toggle("incorrect");
       cards[1].children[1].classList.toggle("incorrect");
+      movesNum++;
+      document.getElementById("moves-num").innerHTML = movesNum + " moves";
       //slow the match message a bit for better timing with correct color change
       setTimeout(function(){
       cards[0].classList.toggle("flip");

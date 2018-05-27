@@ -6,6 +6,12 @@ html {
   height: 100%;
 }
 
+#game-info {
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+
 #card-grid {
   width: 100%;
   display: flex;
