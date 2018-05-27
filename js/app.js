@@ -42,3 +42,28 @@ function checkForMatch(cards){
   },1000);
   }
 }
+
+function makeCard(number){
+  let card = document.createElement('div');
+  card.classList.add("card-wrapper");
+  card.innerHTML = '<div class="card" data-number='+number+'><div class="back">back</div><div class="front">'+number+'</div></div>';
+  return card;
+}
+
+for(let i = 0;i<8/2;i++){
+  initialCards.push(makeCard(i));
+  initialCards.push(makeCard(i));
+}
+
+while(initialCards.length>0){
+  let ranNum = Math.floor(Math.random()*initialCards.length);
+  console.log(ranNum);
+  finalCards.push(initialCards[ranNum]);
+  if(ranNum>-1){
+    initialCards.splice(ranNum,1);
+  }
+}
+
+for(let i = 0;i<finalCards.length;i++){
+  document.getElementsByClassName("container")[0].appendChild(finalCards[i]);
+}
