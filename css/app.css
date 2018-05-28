@@ -7,10 +7,14 @@ html {
 }
 
 #card-grid {
-  width: 100%;
+  width: 95%;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  background-color: pink;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px gray;
 }
 
 .card-wrapper,

@@ -48,7 +48,7 @@ function makeCard(number){
   let card = document.createElement('div');
   card.classList.add("card-wrapper");
   card.innerHTML = '<div class="card" data-number='+number+'><div class="back">back</div><div class="front">'+number+'</div></div>';
-  let cardHeight = (window.innerWidth - 40) / 4;
+  let cardHeight = ((window.innerWidth * .9) - 40) / 4;
   card.style.height = cardHeight+"px";
   return card;
 }
@@ -60,7 +60,6 @@ for(let i = 0;i<16/2;i++){
 
 while(initialCards.length>0){
   let ranNum = Math.floor(Math.random()*initialCards.length);
-  // console.log(ranNum);
   finalCards.push(initialCards[ranNum]);
   if(ranNum>-1){
     initialCards.splice(ranNum,1);
