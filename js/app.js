@@ -25,7 +25,7 @@ cardGrid.addEventListener("click", function(e){
   }
 });
 
-document.getElementById("reset").addEventListener("click",function(){setCards();});
+document.getElementById("reset").addEventListener("click",function(){modal.style.display = "block";});
 
 document.getElementsByClassName("num-container")[0].addEventListener("click",function(e){
   if(e.target.classList.contains("card-num")){
@@ -35,11 +35,13 @@ document.getElementsByClassName("num-container")[0].addEventListener("click",fun
     }
 
     e.target.classList.add("selected");
+    numberOfCards = e.target.innerHTML;
   }
 });
 
 document.getElementsByClassName("start")[0].addEventListener("click",function(){
-  modal.addEventListener("click",function(){this.style.display = "none";});
+  modal.style.display = "none";
+  setCards();
 });
 
 function checkForMatch(cards){
