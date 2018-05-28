@@ -24,6 +24,8 @@ cardGrid.addEventListener("click", function(e){
   }
 });
 
+document.getElementById("reset").addEventListener("click",function(){setCards();});
+
 function checkForMatch(cards){
   //only called when 2 cards have been clicked
   if(cardMatches.length >=2){
@@ -80,23 +82,31 @@ function makeCard(number){
   return card;
 }
 
-for(let i = 0;i<16/2;i++){
-  initialCards.push(makeCard(i));
-  initialCards.push(makeCard(i));
-}
+function setCards(){
+  finalCards = [];
 
-while(initialCards.length>0){
-  let ranNum = Math.floor(Math.random()*initialCards.length);
-  finalCards.push(initialCards[ranNum]);
-  if(ranNum>-1){
-    initialCards.splice(ranNum,1);
+  while(cardGrid.hasChildNodes()){
+    cardGrid.removeChild(cardGrid.lastChild);
+  }
+
+  for(let i = 0;i<16/2;i++){
+    initialCards.push(makeCard(i));
+    initialCards.push(makeCard(i));
+  }
+
+  while(initialCards.length>0){
+    let ranNum = Math.floor(Math.random()*initialCards.length);
+    finalCards.push(initialCards[ranNum]);
+    if(ranNum>-1){
+      initialCards.splice(ranNum,1);
+    }
+  }
+
+  for(let i = 0;i<finalCards.length;i++){
+    cardGrid.appendChild(finalCards[i]);
   }
 }
 
-for(let i = 0;i<finalCards.length;i++){
-  cardGrid.appendChild(finalCards[i]);
-}
+setCards();
 
-
-
-    document.getElementsByClassName("modal")[0].addEventListener("click",function(){document.getElementsByClassName("modal")[0].style.display = "none";});
+document.getElementsByClassName("modal")[0].addEventListener("click",function(){document.getElementsByClassName("modal")[0].style.display = "none";});
