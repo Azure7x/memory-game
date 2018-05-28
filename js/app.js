@@ -35,7 +35,7 @@ function checkForMatch(cards){
         cards[0].children[1].classList.toggle("correct");
         cards[1].children[1].classList.toggle("correct");
         //slow the match message a bit for better timing with correct color change
-        setTimeout(function(){alert("they matched");},500);
+        setTimeout(function(){document.getElementsByClassName("modal")[0].style.display = "block";},500);
     } else{
       mistakes++;
       if(mistakes>=twoStars){
@@ -86,3 +86,7 @@ while(initialCards.length>0){
 for(let i = 0;i<finalCards.length;i++){
   cardGrid.appendChild(finalCards[i]);
 }
+
+
+
+    document.getElementsByClassName("modal")[0].addEventListener("click",function(){document.getElementsByClassName("modal")[0].style.display = "none";});
