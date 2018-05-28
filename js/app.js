@@ -1,12 +1,14 @@
 let cardMatches = [];
 let initialCards = [];
 let finalCards =[];
+let numberOfCards = 16;
 let movesNum = 0;
 let mistakes = 0;
 let winNumber = 0;
 const twoStars = 2;
 const oneStar = 3;
 const cardGrid = document.getElementById("card-grid");
+const modal = document.getElementsByClassName("modal")[0];
 
 cardGrid.addEventListener("click", function(e){
   //checks to see if a card is clicked
@@ -20,11 +22,25 @@ cardGrid.addEventListener("click", function(e){
     card.classList.toggle("flip");
     cardMatches.push(card);
     checkForMatch(cardMatches);
-
   }
 });
 
 document.getElementById("reset").addEventListener("click",function(){setCards();});
+
+document.getElementsByClassName("num-container")[0].addEventListener("click",function(e){
+  if(e.target.classList.contains("card-num")){
+    let el = document.getElementsByClassName("card-num");
+    for(let i = 0; i < el.length; i++){
+      el[i].classList.remove("selected");
+    }
+
+    e.target.classList.add("selected");
+  }
+});
+
+document.getElementsByClassName("start")[0].addEventListener("click",function(){
+  modal.addEventListener("click",function(){this.style.display = "none";});
+});
 
 function checkForMatch(cards){
   //only called when 2 cards have been clicked
@@ -49,8 +65,8 @@ function cardsDoMatch(cards){
   cards[0].children[1].classList.toggle("correct");
   cards[1].children[1].classList.toggle("correct");
   //slow the match message a bit for better timing with correct color change
-  if(winNumber>=8){
-    setTimeout(function(){document.getElementsByClassName("modal")[0].style.display = "block";},500);
+  if(winNumber>=numberOfCards/2){
+    setTimeout(function(){modal.style.display = "block";},500);
   }
 }
 
@@ -89,7 +105,7 @@ function setCards(){
     cardGrid.removeChild(cardGrid.lastChild);
   }
 
-  for(let i = 0;i<16/2;i++){
+  for(let i = 0;i<numberOfCards/2;i++){
     initialCards.push(makeCard(i));
     initialCards.push(makeCard(i));
   }
@@ -109,4 +125,4 @@ function setCards(){
 
 setCards();
 
-document.getElementsByClassName("modal")[0].addEventListener("click",function(){document.getElementsByClassName("modal")[0].style.display = "none";});
+// modal.addEventListener("click",function(){this.style.display = "none";});
