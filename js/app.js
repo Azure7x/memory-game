@@ -1,6 +1,7 @@
 let cardMatches = [];
 let initialCards = [];
 let finalCards =[];
+let startTime;
 let numberOfCards = 16;
 let movesNum = 0;
 let mistakes = 0;
@@ -43,6 +44,7 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
   modal.style.display = "none";
   document.getElementsByClassName("modal-victory")[0].style.display = "none";
   setCards();
+  startTime = new Date().getTime();
 });
 
 function checkForMatch(cards){
@@ -72,6 +74,12 @@ function cardsDoMatch(cards){
     setTimeout(function(){
       modal.style.display = "block";
       document.getElementsByClassName("modal-victory")[0].style.display = "block";
+      document.getElementById("turns").innerHTML = movesNum;
+      let endTime = new Date().getTime();
+      endTime = endTime - startTime;
+      let min = Math.floor(endTime/60000);
+      let sec = ((endTime%60000)/1000).toFixed(0);
+      document.getElementById("time").innerHTML = min + ": "+ sec;
     },500);
   }
 }
@@ -135,6 +143,6 @@ function setCards(){
   }
 }
 
-setCards();
+// setCards();
 
 // modal.addEventListener("click",function(){this.style.display = "none";});

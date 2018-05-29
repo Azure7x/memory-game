@@ -99,7 +99,7 @@ html {
 }
 
 .modal-victory {
-  display: none;
+  /* display: none; */
   font-size: 24px;
   border-radius: 10px;
   margin: auto;
