@@ -20,10 +20,10 @@ html {
 }
 
 #reset {
-  background-color: green;
+  background-color: #99FF99;
   border-radius: 15px;
   padding: 8px;
-  color: white;
+  color: #664c7f;
 }
 
 #card-grid {
@@ -62,7 +62,7 @@ html {
 
 .back {
   position: absolute;
-  background-color: blue;
+  background-color: #FF99FF;
   color: white;
   backface-visibility: hidden;
   width: 100%;
@@ -71,7 +71,7 @@ html {
 
 .front {
   position: absolute;
-  background-color: orange;
+  background-color: #663d66;
   backface-visibility: hidden;
   transform: rotateY(-180deg);
   width: 100%;
@@ -79,11 +79,11 @@ html {
 }
 
 .correct {
-  background-color: green;
+  background-color: #99FF99;
 }
 
 .incorrect {
-  background-color: red;
+  background-color: #ff5e5e;
 }
 
 .modal {
@@ -100,22 +100,24 @@ html {
 
 .modal-victory {
   /* display: none; */
+  color: #664c7f;
   font-size: 24px;
   border-radius: 10px;
   margin: auto;
   width: 80%;
   height: 300px;
-  background-color: yellow;
+  background-color: #FF99FF;
   margin-top: 15px;
 }
 
 .modal-new-game {
+  color: #664c7f;
   font-size: 24px;
   border-radius: 10px;
   margin: auto;
   width: 80%;
   height: 150px;
-  background-color: yellow;
+  background-color: #FF99FF;
 }
 
 .num-container {
@@ -133,6 +135,6 @@ p {
 }
 
 .selected {
-  background-color: orange;
+  background-color: white;
   border-radius: 10px;
 }

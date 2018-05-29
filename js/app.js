@@ -79,7 +79,8 @@ function cardsDoMatch(cards){
       endTime = endTime - startTime;
       let min = Math.floor(endTime/60000);
       let sec = ((endTime%60000)/1000).toFixed(0);
-      document.getElementById("time").innerHTML = min + ": "+ sec;
+      document.getElementById("time").innerHTML = min + ":"+ sec;
+      document.getElementById("modal-stars").innerHTML = document.getElementById("stars").innerHTML;
     },500);
   }
 }
