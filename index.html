@@ -9,9 +9,35 @@
 <body>
 
 <h1>Memory Game</h1>
+<section id="game-info">
+  <div id="moves-num">0 Moves</div>
+  <div id="stars">
+    <img src="img/full-star.png" width="25px" height="25px">
+    <img id="star-two" src="img/full-star.png" width="25px" height="25px">
+    <img id="star-three" src="img/full-star.png" width="25px" height="25px">
+  </div>
+  <button id="reset">New Game</button>
+</section>
 <!-- TODO: credit for card-https://medium.com/designer-recipes/understanding-card-flip-animation-using-css-391c40ed3136  -->
-<section id="card-grid">
+<section id="card-grid"></section>
 
+<section class="modal">
+  <div class="modal-new-game">
+    How many cards?
+    <div class="num-container">
+      <p class="card-num">8</p>
+      <p class="card-num">12</p>
+      <p class="card-num selected">16</p>
+      <p class="card-num">20</p>
+    </div>
+    <button class="start">Start</button>
+  </div>
+
+  <div class="modal-victory">Congratulations!!!
+    <p>You finished in <span id="turns">225</span> moves</p>
+    <p>Time <span id="time">12:00</span></p>
+    <div id="modal-stars"></div>
+  </div>
 </section>
 
 <script src="js/app.js"></script>
