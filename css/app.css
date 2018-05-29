@@ -19,6 +19,13 @@ html {
   margin: 10px;
 }
 
+#reset {
+  background-color: green;
+  border-radius: 15px;
+  padding: 8px;
+  color: white;
+}
+
 #card-grid {
   width: 100%;
   display: flex;
@@ -81,7 +88,7 @@ html {
 
 .modal {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 60px;
   /* display: none; */
   left: 0;
   top: 0;
@@ -91,12 +98,23 @@ html {
   z-index: 1;
 }
 
-.modal-content {
+.modal-victory {
+  display: none;
   font-size: 24px;
   border-radius: 10px;
   margin: auto;
   width: 80%;
   height: 300px;
+  background-color: yellow;
+  margin-top: 15px;
+}
+
+.modal-new-game {
+  font-size: 24px;
+  border-radius: 10px;
+  margin: auto;
+  width: 80%;
+  height: 150px;
   background-color: yellow;
 }
 

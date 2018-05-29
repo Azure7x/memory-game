@@ -41,6 +41,7 @@ document.getElementsByClassName("num-container")[0].addEventListener("click",fun
 
 document.getElementsByClassName("start")[0].addEventListener("click",function(){
   modal.style.display = "none";
+  document.getElementsByClassName("modal-victory")[0].style.display = "none";
   setCards();
 });
 
@@ -68,7 +69,10 @@ function cardsDoMatch(cards){
   cards[1].children[1].classList.toggle("correct");
   //slow the match message a bit for better timing with correct color change
   if(winNumber>=numberOfCards/2){
-    setTimeout(function(){modal.style.display = "block";},500);
+    setTimeout(function(){
+      modal.style.display = "block";
+      document.getElementsByClassName("modal-victory")[0].style.display = "block";
+    },500);
   }
 }
 
@@ -101,7 +105,13 @@ function makeCard(number){
 }
 
 function setCards(){
+  mistakes = 0;
+  winNumber = 0;
+  movesNum = 0;
   finalCards = [];
+  document.getElementById("moves-num").innerHTML = movesNum + " moves";
+  document.getElementById("star-three").src = "img/full-star.png";
+  document.getElementById("star-two").src = "img/full-star.png";
 
   while(cardGrid.hasChildNodes()){
     cardGrid.removeChild(cardGrid.lastChild);
