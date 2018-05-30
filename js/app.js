@@ -47,6 +47,14 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
   startTime = new Date().getTime();
 });
 
+window.addEventListener('resize', function(){
+  if(finalCards.length>0){
+    for(let i=0; i<finalCards.length; i++){
+      setCardHeight(finalCards[i]);
+    }
+  }
+})
+
 function checkForMatch(cards){
   //only called when 2 cards have been clicked
   if(cardMatches.length >=2){
@@ -108,6 +116,11 @@ function makeCard(number){
   let card = document.createElement('div');
   card.classList.add("card-wrapper");
   card.innerHTML = '<div class="card" data-number='+number+'><div class="back">back</div><div class="front">'+number+'</div></div>';
+  setCardHeight(card);
+  return card;
+}
+
+function setCardHeight(card){
   let cardHeight;
   if(window.innerWidth < 750){
     cardHeight = ((window.innerWidth * .9) - 40) / 4;
@@ -115,7 +128,6 @@ function makeCard(number){
     cardHeight = (750 - 80) / 4;
   }
   card.style.height = cardHeight+"px";
-  return card;
 }
 
 function setCards(){

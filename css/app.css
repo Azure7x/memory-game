@@ -142,7 +142,7 @@ h1 {
 }
 
 .modal-victory {
-  /* display: none; */
+  display: none;
   color: #FF99FF;
   font-size: 24px;
   border-radius: 10px;
@@ -252,5 +252,9 @@ p {
     font-size: 40px;
     width: 550px;
     height: 400px;
+  }
+
+  .front {
+    font-size: 150px;
   }
 }
