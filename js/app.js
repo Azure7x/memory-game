@@ -26,8 +26,10 @@ cardGrid.addEventListener("click", function(e){
   }
 });
 
+//displays modal to start a new game
 document.getElementById("reset").addEventListener("click",function(){modal.style.display = "block";});
 
+//clicking a number determines the number of cards for the game
 document.getElementsByClassName("num-container")[0].addEventListener("click",function(e){
   if(e.target.classList.contains("card-num")){
     let el = document.getElementsByClassName("card-num");
@@ -35,16 +37,19 @@ document.getElementsByClassName("num-container")[0].addEventListener("click",fun
       el[i].classList.remove("selected");
     }
 
+    //highlights selected number
     e.target.classList.add("selected");
     numberOfCards = e.target.innerHTML;
   }
 });
 
+//begins the game when the start button is clicked
 document.getElementsByClassName("start")[0].addEventListener("click",function(){
   modal.style.display = "none";
   document.getElementsByClassName("modal-victory")[0].style.display = "none";
   setCards();
   startTime = new Date().getTime();
+  //determines the number of mistakes, based of number of cards, before star ratings drop
   switch(parseInt(numberOfCards)) {
     case 12:
       twoStars = 4;
@@ -64,6 +69,7 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
   }
 });
 
+//readjusts card height when window is resized
 window.addEventListener('resize', function(){
   if(finalCards.length>0){
     for(let i=0; i<finalCards.length; i++){
@@ -79,11 +85,7 @@ function checkForMatch(cards){
     document.getElementById("moves-num").innerHTML = movesNum + " moves";
     //doesn't check to see if the cards match until the flip animation is over
     setTimeout(function(){
-      if(cards[0].dataset.number==cards[1].dataset.number){
-        cardsDoMatch(cards);
-    } else{
-        cardsDoNotMatch(cards);
-    }
+      cards[0].dataset.number==cards[1].dataset.number ? cardsDoMatch(cards) : cardsDoNotMatch(cards);
     cardMatches = [];
   },1000);
   }
@@ -94,8 +96,9 @@ function cardsDoMatch(cards){
   //changes color of card to green to show it is correct
   cards[0].children[1].classList.toggle("correct");
   cards[1].children[1].classList.toggle("correct");
-  //slow the match message a bit for better timing with correct color change
+  //game victory
   if(winNumber>=numberOfCards/2){
+    //shows victory modal
     setTimeout(function(){
       modal.style.display = "block";
       document.getElementsByClassName("modal-victory")[0].style.display = "block";
@@ -132,11 +135,13 @@ function cardsDoNotMatch(cards){
 function makeCard(number){
   let card = document.createElement('div');
   card.classList.add("card-wrapper");
-  card.innerHTML = '<div class="card" data-number='+number+'><div class="back">back</div><div class="front">'+number+'</div></div>';
+  //credit for card flip https://medium.com/designer-recipes/understanding-card-flip-animation-using-css-391c40ed3136
+  card.innerHTML = '<div class="card" data-number='+number+'><div class="back"></div><div class="front">'+number+'</div></div>';
   setCardHeight(card);
   return card;
 }
 
+//sets the card width to match the card width
 function setCardHeight(card){
   let cardHeight;
   if(window.innerWidth < 750){
@@ -148,6 +153,7 @@ function setCardHeight(card){
 }
 
 function setCards(){
+  //resets game elements
   mistakes = 0;
   winNumber = 0;
   movesNum = 0;
@@ -156,15 +162,18 @@ function setCards(){
   document.getElementById("star-three").src = "img/full-star.png";
   document.getElementById("star-two").src = "img/full-star.png";
 
+  //removes the cards that are on the board
   while(cardGrid.hasChildNodes()){
     cardGrid.removeChild(cardGrid.lastChild);
   }
 
+  //creates cards in pairs and adds them to temp array
   for(let i = 0;i<numberOfCards/2;i++){
     initialCards.push(makeCard(i));
     initialCards.push(makeCard(i));
   }
 
+  //randomly adds cards from temp array into new array
   while(initialCards.length>0){
     let ranNum = Math.floor(Math.random()*initialCards.length);
     finalCards.push(initialCards[ranNum]);
@@ -177,7 +186,3 @@ function setCards(){
     cardGrid.appendChild(finalCards[i]);
   }
 }
-
-// setCards();
-
-// modal.addEventListener("click",function(){this.style.display = "none";});
