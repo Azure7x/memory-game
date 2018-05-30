@@ -4,24 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Memory Game</title>
-  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
-<h1>Memory Game</h1>
-<section id="game-info">
-  <div id="moves-num">0 Moves</div>
-  <div id="stars">
-    <img id="star-one" src="img/full-star.png" width="25px" height="25px">
-    <img id="star-two" src="img/full-star.png" width="25px" height="25px">
-    <img id="star-three" src="img/full-star.png" width="25px" height="25px">
-  </div>
-  <button id="reset">New Game</button>
-</section>
-<!-- TODO: credit for card-https://medium.com/designer-recipes/understanding-card-flip-animation-using-css-391c40ed3136  -->
-<section id="card-grid"></section>
+<header>
+  <h1>Memory Game</h1>
+  <!-- displays the information for the game -->
+  <section id="game-info">
+    <div id="moves-num">0 Moves</div>
+    <div id="stars">
+      <img id="star-one" src="img/full-star.png" width="25px" height="25px">
+      <img id="star-two" src="img/full-star.png" width="25px" height="25px">
+      <img id="star-three" src="img/full-star.png" width="25px" height="25px">
+    </div>
+    <button id="reset">New Game</button>
+  </section>
+</header>
+
+<main>
+  <!-- where all the cards are layed out  -->
+  <section id="card-grid"></section>
+</main>
 
 <section class="modal">
+  <!-- pop up modal that ask for number of cards for the game -->
   <div class="modal-new-game">
     How many cards?
     <div class="num-container">
@@ -32,7 +39,7 @@
     </div>
     <button class="start">Start</button>
   </div>
-
+  <!-- modal that pops up after the game has been won -->
   <div class="modal-victory">Congratulations!!!
     <p>You finished in <span id="turns">225</span> moves</p>
     <div id="modal-stars"></div>
