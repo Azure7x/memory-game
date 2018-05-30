@@ -108,7 +108,12 @@ function makeCard(number){
   let card = document.createElement('div');
   card.classList.add("card-wrapper");
   card.innerHTML = '<div class="card" data-number='+number+'><div class="back">back</div><div class="front">'+number+'</div></div>';
-  let cardHeight = ((window.innerWidth * .9) - 40) / 4;
+  let cardHeight;
+  if(window.innerWidth < 750){
+    cardHeight = ((window.innerWidth * .9) - 40) / 4;
+  } else {
+    cardHeight = (750 - 80) / 4;
+  }
   card.style.height = cardHeight+"px";
   return card;
 }
