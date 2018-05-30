@@ -6,8 +6,8 @@ let numberOfCards = 16;
 let movesNum = 0;
 let mistakes = 0;
 let winNumber = 0;
-const twoStars = 2;
-const oneStar = 3;
+let twoStars = 2;
+let oneStar = 3;
 const cardGrid = document.getElementById("card-grid");
 const modal = document.getElementsByClassName("modal")[0];
 
@@ -45,6 +45,23 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
   document.getElementsByClassName("modal-victory")[0].style.display = "none";
   setCards();
   startTime = new Date().getTime();
+  switch(parseInt(numberOfCards)) {
+    case 12:
+      twoStars = 4;
+      oneStar =6;
+      break;
+    case 16:
+        twoStars = 6;
+        oneStar = 8;
+        break;
+    case 20:
+      twoStars = 9;
+      oneStar = 11;
+      break;
+    default:
+    twoStars = 2;
+    oneStar = 3;
+  }
 });
 
 window.addEventListener('resize', function(){

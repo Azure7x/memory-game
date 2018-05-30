@@ -19,7 +19,7 @@ h1 {
 }
 
 #game-info {
-  width: 92%;
+  width: 95%;
   display: flex;
   text-align: center;
   margin: auto;
@@ -241,7 +241,7 @@ p {
   }
 
   #game-info {
-    width: 550px;
+    width: 575px;
   }
 
   .modal-new-game {
