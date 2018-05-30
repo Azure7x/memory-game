@@ -18,6 +18,8 @@ h1 {
   background-color: white;
 }
 
+/* header */
+
 #game-info {
   width: 95%;
   display: flex;
@@ -32,23 +34,16 @@ h1 {
   margin: 10px;
 }
 
-#reset {
-  background-color: #99FF99;
+#reset,
+.start {
+  background-color: #99ff99;
   border-radius: 15px;
   padding: 8px;
   color: #664c7f;
   cursor: pointer;
 }
 
-.start {
-  background-color: #99FF99;
-  border-radius: 15px;
-  padding: 8px;
-  color: #664c7f;
-  font-size: 24px;
-  margin-top: 5px;
-  cursor: pointer;
-}
+/* main card grid section */
 
 #card-grid {
   width: 95%;
@@ -61,31 +56,60 @@ h1 {
   box-shadow: 10px 10px 10px gray;
 }
 
-.card-wrapper,
-.card,
-.front,
-.back {
-  border-radius: 10px;
-}
-
 .card-wrapper {
   perspective: 1000px;
   background-color: gray;
   margin: 5px;
   /* 40px for the margins and divide by for so theres 4 cards on screen */
   width: calc((100% - 40px) / 4);
+  border-radius: 10px;
+}
+
+.flip {
+  transform: rotateY(-180deg);
 }
 
 .card {
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
 }
 
-.spin {
+.card,
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.back,
+.front {
+  position: absolute;
+  color: white;
+  backface-visibility: hidden;
+}
+
+.back {
+  background-color: #ff99ff;
+}
+
+.front {
+  background-color: #663d66;
+  transform: rotateY(-180deg);
+  font-size: 60px;
+}
+
+.correct {
+  background-color: #99ff99;
+}
+
+.incorrect {
+  background-color: #ff5e5e;
+}
+
+/* .spin {
   animation-name: spin;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -95,44 +119,14 @@ h1 {
 @keyframes spin {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
-}
+} */
 
-.flip {
-  transform: rotateY(-180deg);
-}
 
-.back {
-  position: absolute;
-  background-color: #FF99FF;
-  color: white;
-  backface-visibility: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.front {
-  position: absolute;
-  background-color: #663d66;
-  backface-visibility: hidden;
-  transform: rotateY(-180deg);
-  width: 100%;
-  height: 100%;
-  color: white;
-  font-size: 60px;
-}
-
-.correct {
-  background-color: #99FF99;
-}
-
-.incorrect {
-  background-color: #ff5e5e;
-}
+/* modal section */
 
 .modal {
   text-align: center;
   margin-top: 60px;
-  /* display: none; */
   left: 0;
   top: 0;
   position: fixed;
@@ -141,33 +135,36 @@ h1 {
   z-index: 1;
 }
 
-.modal-victory {
-  display: none;
-  color: #FF99FF;
-  font-size: 24px;
+.modal-victory,
+.modal-new-game {
+  color: #ff99ff;
   border-radius: 10px;
   margin: auto;
   width: 80%;
-  height: 300px;
   background-color: #663d66;
+  border: 5px solid #ff99ff;
+}
+
+.modal-victory {
+  display: none;
+  font-size: 24px;
+  height: 300px;
   margin-top: 15px;
-  border: 5px solid #FF99FF;
 }
 
 .modal-new-game {
-  color: #FF99FF;
   font-size: 30px;
-  border-radius: 10px;
-  margin: auto;
-  width: 80%;
   height: 170px;
-  background-color: #663d66;
-  border: 5px solid #FF99FF;
 }
 
 .num-container {
   width: 100%;
   display: flex;
+}
+
+.start {
+  font-size: 24px;
+  margin-top: 5px;
 }
 
 .card-num {
@@ -202,7 +199,7 @@ p {
   }
 
   h1 {
-    padding: 30px 0px;
+    padding: 30px 0;
     font-size: 60px;
   }
 
