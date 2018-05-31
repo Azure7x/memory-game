@@ -121,6 +121,16 @@ h1 {
   to {transform: rotate(360deg);}
 }
 
+/* .spin-win {
+  animation-name: spin-win;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes spin-win {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+} */
 
 /* modal section */
 

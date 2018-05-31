@@ -95,6 +95,7 @@ function cardsDoMatch(cards){
   winNumber++;
   //changes color of card to green to show it is correct
   cards[0].children[1].classList.toggle("correct");
+  // cards[0].classList.toggle("spin-win");
   cards[1].children[1].classList.toggle("correct");
   //game victory
   if(winNumber>=numberOfCards/2){
