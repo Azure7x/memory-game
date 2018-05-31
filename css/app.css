@@ -26,6 +26,7 @@ h1 {
   text-align: center;
   margin: auto;
   font-size: 24px;
+  flex-wrap: wrap;
 }
 
 #moves-num,
@@ -41,6 +42,10 @@ h1 {
   padding: 8px;
   color: #664c7f;
   cursor: pointer;
+}
+
+.time {
+  width: 100%;
 }
 
 /* main card grid section */
@@ -185,6 +190,7 @@ h1 {
 
 p {
   margin-bottom: 8px;
+  margin-top: 0;
 }
 
 .selected {
