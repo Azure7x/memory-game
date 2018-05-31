@@ -27,7 +27,7 @@ cardGrid.addEventListener("click", function(e){
 });
 
 //displays modal to start a new game
-document.getElementById("reset").addEventListener("click",function(){modal.style.display = "block";});
+document.getElementById("new-game").addEventListener("click",function(){modal.style.display = "block";});
 
 //clicking a number determines the number of cards for the game
 document.getElementsByClassName("num-container")[0].addEventListener("click",function(e){
@@ -83,6 +83,11 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
   },1000);
 });
 
+document.getElementById("restart").addEventListener("click", function(){
+  setCards();
+  startTime = new Date().getTime();
+});
+
 //readjusts card height when window is resized
 window.addEventListener('resize', function(){
   if(finalCards.length>0){
@@ -90,7 +95,7 @@ window.addEventListener('resize', function(){
       setCardHeight(finalCards[i]);
     }
   }
-})
+});
 
 function checkForMatch(cards){
   //only called when 2 cards have been clicked
