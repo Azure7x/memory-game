@@ -67,7 +67,7 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
     twoStars = 2;
     oneStar = 3;
   }
-
+  //updates the displayed time every second
   setInterval(function(){
       let endTime = new Date().getTime();
       endTime = endTime - startTime;
@@ -83,6 +83,7 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
   },1000);
 });
 
+//resets the current game
 document.getElementById("restart").addEventListener("click", function(){
   setCards();
   startTime = new Date().getTime();
