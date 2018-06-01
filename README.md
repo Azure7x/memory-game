@@ -1,8 +1,17 @@
 # Memory Game
 
-A simple game that uses html, css, and javascript where the goal is to match a pair of cards .
+A simple card matching game.
 
-You start by choosing how many cards you want to play with.  After the game starts you select two cards.  
-If the cards match they turn green and stay flipped up.  If they don't, they turn red then flip back down.  Make too many
-mismatches brings the star rating down.  The number of mismatches needed before the star rating drops depends on how many 
-cards there are.  The time is also displayed and you can restart the current game by hitting the restart button.
+## Directions
+
+* To play the game click [here](https://htmlpreview.github.io/?https://github.com/Azure7x/memory-game/blob/master/index.html)
+* Flipping two of the same cards causes a match.
+* Too many mismatches causes star rating to drop.
+* Match all the cards to win the game.
+
+## Dependencies
+
+* HTML
+* CSS
+* Javascript
+
