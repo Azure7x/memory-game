@@ -175,6 +175,7 @@ function setCardHeight(card){
 
 function setCards(){
   //resets game elements
+  cardMatches = [];
   mistakes = 0;
   winNumber = 0;
   movesNum = 0;
