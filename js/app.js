@@ -72,11 +72,11 @@ document.getElementsByClassName("start")[0].addEventListener("click",function(){
       let endTime = new Date().getTime();
       endTime = endTime - startTime;
       let min = Math.floor(endTime/60000);
-      if(min<9){
+      if(min<=9){
         min = "0"+min;
       }
       let sec = ((endTime%60000)/1000).toFixed(0);
-      if(sec<9){
+      if(sec<=9){
         sec = "0"+sec;
       }
       document.getElementsByClassName("set-time")[0].innerHTML = min + ":" + sec;
